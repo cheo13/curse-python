@@ -1,1 +1,1 @@
-# curse-python
+# curse-python =)
