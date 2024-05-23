@@ -1,0 +1,20 @@
+from selenium import webdriver
+from selenium.webdriver.common.by import By
+from selenium.webdriver.firefox.options import Options as FirefoxOptions
+from time import sleep
+
+options = FirefoxOptions()
+options.add_argument("--headless")
+driver = webdriver.Firefox(options=options)
+
+URL = "http://google.com"
+
+driver.get(URL)
+sleep(30)
+
+S = lambda X: driver.execute_script('return document.body.parentNode.scroll'+X)
+driver.set_window_size(S('Width'),S('Height'))                                                                                                           
+driver.find_element(By.TAG_NAME,'body').screenshot('web_screenshot.png')
+
+driver.quit()
+print("end")
